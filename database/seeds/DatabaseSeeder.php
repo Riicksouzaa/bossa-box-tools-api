@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +14,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->insert([
+            'name' => 'bossa_box_user',
+            'email' => 'user@bossabox.com',
+            'password' => Hash::make('example'),
+            'created_at' => new DateTime('now'),
+            'updated_at' => new DateTime('now')
+        ]);
+
+
         // $this->call(UserSeeder::class);
         $this->call(ToolsTableSeeder::class);
         $this->call(TagsTableSeeder::class);
