@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeginKeyToToolsTags extends Migration
+class AddForeginKeyToTagTool extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddForeginKeyToToolsTags extends Migration
      */
     public function up()
     {
-        Schema::table('tools_tags', function (Blueprint $table) {
-            $table->foreign('tool_id', 'tool_id_ibfk_1')->references('id')->on('tools')->onUpdate('CASCADE')->onDelete('CASCADE');
+        Schema::table('tag_tool', function (Blueprint $table) {
             $table->foreign('tag_id', 'tag_id_ibfk_1')->references('id')->on('tags')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('tool_id', 'tool_id_ibfk_1')->references('id')->on('tools')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -26,9 +26,9 @@ class AddForeginKeyToToolsTags extends Migration
      */
     public function down()
     {
-        Schema::table('tools_tags', function (Blueprint $table) {
-            $table->dropForeign('tool_id_ibfk_1');
+        Schema::table('tag_tool', function (Blueprint $table) {
             $table->dropForeign('tag_id_ibfk_1');
+            $table->dropForeign('tool_id_ibfk_1');
         });
     }
 }

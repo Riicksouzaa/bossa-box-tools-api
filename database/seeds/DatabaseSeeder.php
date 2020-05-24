@@ -3,7 +3,6 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,6 +25,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(UserSeeder::class);
         $this->call(ToolsTableSeeder::class);
         $this->call(TagsTableSeeder::class);
-        $this->call(ToolsTagsTableSeeder::class);
+        $this->call(TagToolTableSeeder::class);
     }
 }
