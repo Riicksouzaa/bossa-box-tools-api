@@ -28,7 +28,7 @@ class TagsTableSeeder extends Seeder
                 10 => ["name" => "rest", 'created_at' => new DateTime('now'), 'updated_at' => new DateTime('now')],
                 11 => ["name" => "web", 'created_at' => new DateTime('now'), 'updated_at' => new DateTime('now')],
                 12 => ["name" => "framework", 'created_at' => new DateTime('now'), 'updated_at' => new DateTime('now')],
-                13 => ["name" => "node", 'created_at' => new DateTime('now'), 'updated_at' => new DateTime('now')],
+//                13 => ["name" => "node", 'created_at' => new DateTime('now'), 'updated_at' => new DateTime('now')],
                 14 => ["name" => "http2", 'created_at' => new DateTime('now'), 'updated_at' => new DateTime('now')],
                 15 => ["name" => "https", 'created_at' => new DateTime('now'), 'updated_at' => new DateTime('now')],
                 16 => ["name" => "localhost", 'created_at' => new DateTime('now'), 'updated_at' => new DateTime('now')],

@@ -26,7 +26,7 @@ class TagToolTableSeeder extends Seeder
             9 => ["tool_id" => 2, "tag_id" => 10],
             10 => ["tool_id" => 2, "tag_id" => 11],
             11 => ["tool_id" => 3, "tag_id" => 12],
-            12 => ["tool_id" => 3, "tag_id" => 13],
+            12 => ["tool_id" => 3, "tag_id" => 9],
             13 => ["tool_id" => 3, "tag_id" => 14],
             14 => ["tool_id" => 3, "tag_id" => 15],
             15 => ["tool_id" => 3, "tag_id" => 16],
