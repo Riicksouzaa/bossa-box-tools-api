@@ -15,6 +15,6 @@ Route::group([
 
 Route::group(['middleware' => 'apiJwt'], function () {
     Route::get('tools', 'ToolsController@index');
-    Route::post('tool', 'ToolsController@createTool');
-    Route::put('tool', 'ToolsController@updateToolById');
+    Route::post('tools', 'ToolsController@createTool');
+    Route::put('tools', 'ToolsController@updateToolById');
 });
