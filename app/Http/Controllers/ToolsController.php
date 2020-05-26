@@ -17,7 +17,7 @@ class ToolsController extends Controller
      *       required=true,
      *       @OA\Schema(type="string")
      *     ),
-     *     @OA\response(response="200",
+     *     @OA\Response(response="200",
      *       description="Tool successfully get",
      *       @OA\JsonContent(type="array",
      *       @OA\Items(ref="#/components/schemas/Tool"))
