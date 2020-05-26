@@ -9,8 +9,18 @@ use Illuminate\Validation\ValidationException;
 
 class ToolsController extends Controller
 {
-    //
-
+    /**
+     * @OA\Get(
+     *     path="/tools",
+     *     tags={"Tools"},
+     *     summary="Retrieve all tools from database",
+     *     operationId="getTool",
+     *     @OA\response(response=200, description="Tool successfully get", @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Tool"))),
+     *     @OA\Response(response=405, description="Invalid input"),
+     * )
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index(Request $request)
     {
         $tool = [];
@@ -42,6 +52,18 @@ class ToolsController extends Controller
 
     }
 
+
+    /**
+     * @OA\Post(
+     *     path="/tools",
+     *     tags={"Tools"},
+     *     summary="Create new tool in database",
+     *     operationId="createTool",
+     *     @OA\response(response=201, description="Tool successfully created", @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Tool")))
+     * )
+     * @param Request $request
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     */
     public function createTool(Request $request)
     {
         try {
@@ -80,6 +102,17 @@ class ToolsController extends Controller
         }
     }
 
+    /**
+     * @OA\Put(
+     *     path="/tools",
+     *     tags={"Tools"},
+     *     summary="Update a tool in database by id",
+     *     operationId="updateTool",
+     *     @OA\response(response=200, description="Tool successfully updated", @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Tool")))
+     * )
+     * @param Request $request
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     */
     public function updateToolById(Request $request)
     {
         try {
@@ -110,6 +143,30 @@ class ToolsController extends Controller
         } catch (ValidationException $e) {
             return response(json_encode(["status" => "error", "response" => $e->getMessage()]), 403);
         }
+    }
 
+    /**
+     * @OA\Delete(
+     *     path="/tools",
+     *     tags={"Tools"},
+     *     summary="Update a tool in database by id",
+     *     operationId="updateTool",
+     *     @OA\response(response=200, description="Tool successfully deleted")
+     * )
+     * @param Request $request
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     */
+    public function deleteToolById(Request $request)
+    {
+        try {
+            $this->validate($request, [
+                "id" => "required"
+            ]);
+
+            $tool = Tool::find($request->id);
+            $tool->delete();
+        } catch (ValidationException $e) {
+            return response(json_encode(["status" => "error", "response" => $e->getMessage()]), 403);
+        }
     }
 }
