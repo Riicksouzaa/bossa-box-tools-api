@@ -32,6 +32,9 @@ class ApiProtectedRoute extends BaseMiddleware
             }
         }
 
-        return $next($request);
+        return $next($request)
+            ->header('Access-control-Allow-Origin', "*")
+            ->header('Access-control-Allow-Methods', "POST,GET,PUT,DELETE")
+            ->header('Access-control-Allow-Headers', "Accept,Authorization,Content-Type");
     }
 }
