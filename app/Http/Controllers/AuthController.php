@@ -17,6 +17,33 @@ class AuthController extends Controller
     }
 
     /**
+     *
+     * @OA\Post(
+     *     path="/auth/login",
+     *     tags={"Auth"},
+     *     summary="Makes login and receive JWT Bearer Token to make calls int the API",
+     *     @OA\Parameter(
+     *          name="email",
+     *          in="query",
+     *          description="the e-mail to login",
+     *          required=true,
+     *          @OA\Schema(
+     *              type="string"
+     * )
+     * ), @OA\Parameter(
+     *         name="password",
+     *         in="query",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string",
+     *         )
+     *     ),
+     *     @OA\Response(
+     *     response=200,
+     *     description="Login success.",
+     *     @OA\JsonContent(type="string"))
+     * )
+     *
      * Get a JWT via given credentials.
      *
      * @param Request $request

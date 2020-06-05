@@ -23,7 +23,7 @@ use Illuminate\Routing\Controller as BaseController;
  *     ),
  *     @OA\Server(
  *         description="VUTTR Host",
- *         url="https://vuttr-bossa.herokuapp.com/"
+ *         url="https://vuttr-bossa.herokuapp.com"
  *     )
  * )
  */
