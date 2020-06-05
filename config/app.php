@@ -1,38 +1,5 @@
 <?php
 
-if (!function_exists('is_https')) {
-    /**
-     * Is HTTPS?
-     *
-     * Determines if the application is accessed via an encrypted
-     * (HTTPS) connection.
-     *
-     * @return    bool
-     */
-    function is_https()
-    {
-        if (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off') {
-            return TRUE;
-        } elseif (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https') {
-            return TRUE;
-        } elseif (!empty($_SERVER['HTTP_FRONT_END_HTTPS']) && strtolower($_SERVER['HTTP_FRONT_END_HTTPS']) !== 'off') {
-            return TRUE;
-        }
-
-        return FALSE;
-    }
-}
-
-$is_https = is_https();
-
-if ($is_https) {
-    $base_url = "https://" . $_SERVER['HTTP_HOST'];
-    $base_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
-} else {
-    $base_url = "http://" . $_SERVER['HTTP_HOST'];
-    $base_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
-}
-
 return [
 
     /*
@@ -85,7 +52,7 @@ return [
     |
     */
 
-    'url' => $base_url,
+    'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
 
