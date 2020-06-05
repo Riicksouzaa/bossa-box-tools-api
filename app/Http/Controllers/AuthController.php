@@ -71,6 +71,17 @@ class AuthController extends Controller
     }
 
     /**
+     * @OA\Post(
+     *     path="/auth/logout",
+     *     tags={"Auth"},
+     *     summary="Makes logout of application",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Response(
+     *     response=200,
+     *     description="Logout successfully.",
+     *     @OA\JsonContent(type="string"))
+     * )
+     *
      * Log the user out (Invalidate the token).
      *
      * @return \Illuminate\Http\JsonResponse
