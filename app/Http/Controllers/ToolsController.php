@@ -14,6 +14,7 @@ class ToolsController extends Controller
      *     path="/tools",
      *     tags={"Tools"},
      *     summary="Retrieve all tools from database",
+     *     security={{"bearerAuth":{}}},
      *     @OA\Response(response=200, description="Tool successfully get", @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Tool"))),
      *     @OA\Response(response=405, description="Invalid input"),
      * )
@@ -57,6 +58,7 @@ class ToolsController extends Controller
      *     path="/tools",
      *     tags={"Tools"},
      *     summary="Create new tool in database",
+     *     security={{"bearerAuth":{}}},
      *     @OA\Response(response=201, description="Tool successfully created", @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Tool")))
      * )
      * @param Request $request
@@ -105,6 +107,7 @@ class ToolsController extends Controller
      *     path="/tools",
      *     tags={"Tools"},
      *     summary="Update a tool in database by id",
+     *     security={{"bearerAuth":{}}},
      *     @OA\Response(response=200, description="Tool successfully updated", @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Tool")))
      * )
      * @param Request $request
@@ -147,6 +150,7 @@ class ToolsController extends Controller
      *     path="/tools",
      *     tags={"Tools"},
      *     summary="Delete a tool in database by id",
+     *     security={{"bearerAuth":{}}},
      *     @OA\Response(response=200, description="Tool successfully deleted")
      * )
      * @param Request $request

@@ -34,6 +34,15 @@ use Illuminate\Routing\Controller as BaseController;
  *     description="Access tools routes",
  * )
  *
+ * @OA\SecurityScheme(
+ *          securityScheme="bearerAuth",
+ *          in="header",
+ *          name="bearerAuth",
+ *          type="http",
+ *          scheme="bearer",
+ *          bearerFormat="JWT",
+ *      )
+ *
  * Class Controller
  * @package App\Http\Controllers
  */
